@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context=".activity.MonthActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:textSize="60sp" />
+
+    <com.haibin.calendarview.CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:month_view="com.lsilencej.openhappyhackingcalendar.view.CustomMonthView"
+        app:month_view_show_mode="mode_only_current"
+        app:week_text_size="24sp"
+        app:calendar_height="100dp"
+        app:month_view_scrollable="false"
+        app:week_start_with="mon"
+        app:week_bar_height="80dp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
