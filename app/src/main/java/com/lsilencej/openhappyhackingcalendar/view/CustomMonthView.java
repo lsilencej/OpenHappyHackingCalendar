@@ -11,6 +11,9 @@ import com.haibin.calendarview.MonthView;
 
 public class CustomMonthView extends MonthView {
 
+    private static final int TEXT_SIZE = 20;
+    private static final int LUNAR_TEXT_SIZE = 15;
+
     private final Paint mRectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint mCurrentDayTextPaint = new Paint();
     private final Paint mCurrentDayLunarTextPaint = new Paint();
@@ -18,9 +21,6 @@ public class CustomMonthView extends MonthView {
     private final Paint mSimpleDayLunarTextPaint = new Paint();
     private final Paint mWeekendTextPaint = new Paint();
     private final Paint mWeekendLunarTextPaint = new Paint();
-
-    static final int TEXT_SIZE = 20;
-    static final int LUNAR_TEXT_SIZE = 15;
 
     public CustomMonthView(Context context) {
         super(context);

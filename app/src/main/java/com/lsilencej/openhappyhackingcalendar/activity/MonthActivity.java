@@ -6,13 +6,15 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.haibin.calendarview.CalendarView;
+import com.lsilencej.openhappyhackingcalendar.R;
 import com.lsilencej.openhappyhackingcalendar.databinding.ActivityMonthBinding;
 
-import java.util.Calendar;
-
-public class MonthActivity extends AppCompatActivity {
+public class MonthActivity extends AppCompatActivity implements CalendarView.OnMonthChangeListener {
 
     private ActivityMonthBinding activityMonthBinding;
+
+    private final String[] monthName = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,17 @@ public class MonthActivity extends AppCompatActivity {
     private void initView() {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/SpaceMono.ttf");
         activityMonthBinding.tvMonth.setTypeface(typeface);
-        Calendar calendar = Calendar.getInstance();
-        int month = calendar.get(Calendar.MONTH);
-        String[] monthName = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        activityMonthBinding.tvMonth.setText(monthName[month]);
+        activityMonthBinding.tvYear.setTypeface(typeface);
+        CalendarView calendarView = findViewById(R.id.calendar_view);
+        activityMonthBinding.tvMonth.setText(monthName[calendarView.getCurMonth() - 1]);
+        activityMonthBinding.tvYear.setText(String.valueOf(calendarView.getCurYear()));
+        calendarView.setOnMonthChangeListener(this);
+    }
+
+    @Override
+    public void onMonthChange(int year, int month) {
+//        Toast.makeText(this, monthName[month - 1], Toast.LENGTH_SHORT).show();
+        activityMonthBinding.tvMonth.setText(monthName[month - 1]);
+        activityMonthBinding.tvYear.setText(String.valueOf(year));
     }
 }

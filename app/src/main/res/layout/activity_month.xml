@@ -14,17 +14,28 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:textSize="60sp" />
+        android:textSize="50sp" />
 
-    <com.haibin.calendarview.CalendarView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:text="2022"/>
+
+    <com.haibin.calendarview.CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:week_bar_view="com.lsilencej.openhappyhackingcalendar.view.CustomWeekBarView"
         app:month_view="com.lsilencej.openhappyhackingcalendar.view.CustomMonthView"
         app:month_view_show_mode="mode_only_current"
         app:week_text_size="24sp"
-        app:calendar_height="100dp"
-        app:month_view_scrollable="false"
+        app:calendar_height="90dp"
+        app:month_view_scrollable="true"
         app:week_start_with="mon"
-        app:week_bar_height="80dp" />
+        app:week_bar_height="80dp"
+        app:calendar_padding="5dp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
