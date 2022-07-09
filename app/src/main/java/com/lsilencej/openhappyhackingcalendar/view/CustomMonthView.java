@@ -59,14 +59,14 @@ public class CustomMonthView extends MonthView {
         mWeekendTextPaint.setTypeface(typeface);
         mWeekendTextPaint.setAntiAlias(true);
         mWeekendTextPaint.setTextAlign(Paint.Align.CENTER);
-        mWeekendTextPaint.setColor(0xffcc0000);
+        mWeekendTextPaint.setColor(0xffff4444);
         mWeekendTextPaint.setFakeBoldText(true);
         mWeekendTextPaint.setTextSize(dipToPx(context, TEXT_SIZE));
 
         mWeekendLunarTextPaint.setTypeface(typeface);
         mWeekendLunarTextPaint.setAntiAlias(true);
         mWeekendLunarTextPaint.setTextAlign(Paint.Align.CENTER);
-        mWeekendLunarTextPaint.setColor(0xffcc0000);
+        mWeekendLunarTextPaint.setColor(0xffff4444);
         mWeekendLunarTextPaint.setTextSize(dipToPx(context, LUNAR_TEXT_SIZE));
 
     }

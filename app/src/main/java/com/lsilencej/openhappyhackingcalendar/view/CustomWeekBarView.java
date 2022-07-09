@@ -34,7 +34,7 @@ public class CustomWeekBarView extends WeekBar {
         for (int i = 0; i < getChildCount(); i++) {
             ((TextView) getChildAt(i)).setText(getWeekString(i, weekStart));
             if (i == 5 || i == 6) {
-                ((TextView) getChildAt(i)).setTextColor(0xffcc0000);
+                ((TextView) getChildAt(i)).setTextColor(0xffff4444);
             }
         }
     }
