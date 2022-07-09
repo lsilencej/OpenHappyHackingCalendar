@@ -36,6 +36,7 @@
         app:month_view_scrollable="true"
         app:week_start_with="mon"
         app:week_bar_height="80dp"
-        app:calendar_padding="5dp" />
+        app:calendar_padding="5dp"
+        android:clickable="false"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

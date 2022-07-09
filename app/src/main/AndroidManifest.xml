@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OpenHappyHackingCalendar">
         <activity
+            android:name=".activity.WeekActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.MonthActivity"
             android:exported="true">
             <intent-filter>

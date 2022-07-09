@@ -1,7 +1,9 @@
 package com.lsilencej.openhappyhackingcalendar.activity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,9 @@ public class MonthActivity extends AppCompatActivity implements CalendarView.OnM
     private ActivityMonthBinding activityMonthBinding;
 
     private final String[] monthName = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    float y1 = 0;
+    float y2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +45,22 @@ public class MonthActivity extends AppCompatActivity implements CalendarView.OnM
 //        Toast.makeText(this, monthName[month - 1], Toast.LENGTH_SHORT).show();
         activityMonthBinding.tvMonth.setText(monthName[month - 1]);
         activityMonthBinding.tvYear.setText(String.valueOf(year));
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            y1 = event.getY();
+        }
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            y2 = event.getY();
+            if (y1 - y2 > 50) {
+//                Toast.makeText(this, "向上滑", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, WeekActivity.class));
+                overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+                finish();
+            }
+        }
+        return super.onTouchEvent(event);
     }
 }
