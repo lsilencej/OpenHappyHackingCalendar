@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:fontFamily="@font/spacemono" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_year"
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="16sp"
+        android:fontFamily="@font/spacemono"
         android:text="2022"/>
 
     <com.haibin.calendarview.CalendarView

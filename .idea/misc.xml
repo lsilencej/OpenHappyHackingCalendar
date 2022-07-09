@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/23100/Desktop/1/OpenHappyHackingCalendar/app/src/main/res/layout/activity_main.xml" value="0.35643115942028986" />
+        <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2045" />
+        <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/drawable/view_boarder.xml" value="0.2045" />
         <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/layout/activity_month.xml" value="0.35643115942028986" />
         <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/layout/activity_week.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/layout/view.xml" value="0.1859375" />
+        <entry key="..\:/Users/23100/Desktop/OpenHappyHackingCalendar/app/src/main/res/layout/view_week_bar.xml" value="0.35643115942028986" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

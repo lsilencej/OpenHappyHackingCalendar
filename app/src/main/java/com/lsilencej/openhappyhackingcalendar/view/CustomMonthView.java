@@ -24,6 +24,7 @@ public class CustomMonthView extends MonthView {
 
     public CustomMonthView(Context context) {
         super(context);
+
         Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/SpaceMono.ttf");
         mRectPaint.setTypeface(typeface);
         mRectPaint.setStyle(Paint.Style.STROKE);

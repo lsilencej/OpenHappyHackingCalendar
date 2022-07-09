@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">OpenHappyHackingCalendar</string>
+    <string name="mMon">Mon</string>
+    <string name="mTue">Tue</string>
+    <string name="mWed">Wed</string>
+    <string name="mThu">Thu</string>
+    <string name="mFri">Fri</string>
+    <string name="mSat">Sat</string>
+    <string name="mSun">Sun</string>
 </resources>

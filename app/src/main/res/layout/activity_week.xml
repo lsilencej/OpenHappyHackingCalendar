@@ -1,10 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.WeekActivity">
+    tools:context=".activity.WeekActivity"
+    android:padding="20dp">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?android:actionBarSize"
+            android:fontFamily="@font/spacemono"
+            android:textSize="55sp"
+            android:text="Go" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_full_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spacemono"
+            android:gravity="end"
+            android:textSize="30sp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="end">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textSize="22sp"
+                android:fontFamily="@font/spacemono"
+                android:textStyle="bold"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_lunar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textSize="20sp"
+                android:fontFamily="@font/spacemono"
+                android:layout_marginStart="5dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.sunfusheng.codeviewer.CodeView
+            android:id="@+id/code_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="?android:actionBarSize">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/spacemono"
+            android:text="Go（又称Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:background="@drawable/view_boarder">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:divider="@color/black"
+                android:showDividers="middle">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_mon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mMon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_mon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_mon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_tue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mTue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_tue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_tue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_wed"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mWed" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_wed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_wed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_thu"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mThu" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_thu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_thu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_fri"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mFri" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_fri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_fri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_sat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/red"
+                        android:text="@string/mSat" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_sat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_sat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_sun"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/red"
+                        android:text="@string/mSun" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_day_sun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_lunar_sun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spacemono"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>

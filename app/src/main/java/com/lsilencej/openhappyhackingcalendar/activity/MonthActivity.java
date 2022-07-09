@@ -1,16 +1,20 @@
 package com.lsilencej.openhappyhackingcalendar.activity;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarView;
 import com.lsilencej.openhappyhackingcalendar.R;
 import com.lsilencej.openhappyhackingcalendar.databinding.ActivityMonthBinding;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class MonthActivity extends AppCompatActivity implements CalendarView.OnMonthChangeListener {
 
@@ -18,8 +22,10 @@ public class MonthActivity extends AppCompatActivity implements CalendarView.OnM
 
     private final String[] monthName = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
-    float y1 = 0;
-    float y2 = 0;
+    private List<Calendar> calendars;
+
+    private float y1 = 0;
+    private float y2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +37,9 @@ public class MonthActivity extends AppCompatActivity implements CalendarView.OnM
     }
 
     private void initView() {
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/SpaceMono.ttf");
-        activityMonthBinding.tvMonth.setTypeface(typeface);
-        activityMonthBinding.tvYear.setTypeface(typeface);
         CalendarView calendarView = findViewById(R.id.calendar_view);
+        calendars = calendarView.getCurrentWeekCalendars();
+        Log.d("lsilencej", String.valueOf(calendars));
         activityMonthBinding.tvMonth.setText(monthName[calendarView.getCurMonth() - 1]);
         activityMonthBinding.tvYear.setText(String.valueOf(calendarView.getCurYear()));
         calendarView.setOnMonthChangeListener(this);
@@ -56,7 +61,9 @@ public class MonthActivity extends AppCompatActivity implements CalendarView.OnM
             y2 = event.getY();
             if (y1 - y2 > 50) {
 //                Toast.makeText(this, "向上滑", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, WeekActivity.class));
+                Intent intent = new Intent(this, WeekActivity.class);
+                intent.putExtra("calendars", (Serializable) calendars);
+                startActivity(intent);
                 overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
                 finish();
             }
