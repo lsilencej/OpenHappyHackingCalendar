@@ -32,7 +32,7 @@ public class CustomMonthView extends MonthView {
         mRectPaint.setTypeface(typeface);
         mRectPaint.setStyle(Paint.Style.STROKE);
         mRectPaint.setStrokeWidth(dipToPx(context, 0.5f));
-        mRectPaint.setColor(nightMode == Configuration.UI_MODE_NIGHT_YES ? 0xFFA9A9B3 : 0xFFFFFFFF);
+        mRectPaint.setColor(nightMode == Configuration.UI_MODE_NIGHT_YES ? 0xFF1D1F21 : 0xFFFFFFFF);
 
         mCurrentDayTextPaint.setTypeface(typeface);
         mCurrentDayTextPaint.setAntiAlias(true);
