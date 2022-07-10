@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OpenHappyHackingCalendar</string>
+    <string name="app_name">编程日历</string>
     <string name="mMon">Mon</string>
     <string name="mTue">Tue</string>
     <string name="mWed">Wed</string>
