@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="?android:actionBarSize"
             android:fontFamily="@font/spacemono"
-            android:textSize="55sp"
-            android:text="Go" />
+            android:textStyle="bold"
+            android:textSize="45sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_full_day"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/spacemono"
             android:gravity="end"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
@@ -57,10 +57,10 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <com.sunfusheng.codeviewer.CodeView
+        <thereisnospon.codeview.CodeView
             android:id="@+id/code_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -76,8 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:fontFamily="@font/spacemono"
-            android:text="Go（又称Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。" />
+            android:fontFamily="@font/spacemono" />
 
         <TableLayout
             android:layout_width="match_parent"

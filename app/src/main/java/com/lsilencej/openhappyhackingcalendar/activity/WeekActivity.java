@@ -2,21 +2,30 @@ package com.lsilencej.openhappyhackingcalendar.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.haibin.calendarview.Calendar;
 import com.lsilencej.openhappyhackingcalendar.R;
 import com.lsilencej.openhappyhackingcalendar.databinding.ActivityWeekBinding;
-import com.sunfusheng.codeviewer.CodeHtmlGenerator;
-import com.sunfusheng.codeviewer.CodeView;
-import com.sunfusheng.codeviewer.CodeViewUtil;
+import com.lsilencej.openhappyhackingcalendar.model.Wiki;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
+import thereisnospon.codeview.CodeView;
+import thereisnospon.codeview.CodeViewTheme;
 
 public class WeekActivity extends AppCompatActivity {
 
@@ -67,8 +76,6 @@ public class WeekActivity extends AppCompatActivity {
             int day = calendar.getDay();
             int week = calendar.getWeek();
             String lunar = calendar.getLunar();
-            Log.d("lsilencej", calendar.getTraditionFestival());
-            Log.d("lsilencej", calendar.getGregorianFestival());
             String halfDay = (month > 9 ? month : "0" + month) + "-" + (day > 9 ? day : "0" + day);
             switch (i) {
                 case 0:
@@ -162,9 +169,53 @@ public class WeekActivity extends AppCompatActivity {
             }
 //            Log.d("lsilencej", calendars.get(i).getLunar());
         }
-        CodeView codeView = findViewById(R.id.code_view);
-        String sourceCode = CodeViewUtil.INSTANCE.getStringFromAssetsFile(getApplicationContext(), "codes/HackingDate.go");
-        String sourceCodeHtml = CodeHtmlGenerator.INSTANCE.generate("codes/HackingDate.v", sourceCode, false, false);
-        codeView.loadCodeHtml(sourceCodeHtml);
+        Wiki wiki = getRandomWiki();
+        activityWeekBinding.tvLanguage.setText(wiki.getLang());
+        activityWeekBinding.tvDescribe.setText(wiki.getDescWiki());
+        CodeView codeView = (CodeView) findViewById(R.id.code_view);
+        codeView.setTheme(CodeViewTheme.QTCREATOR_LIGHT);
+        codeView.showCode(getSourceCode(wiki));
+    }
+
+    private Wiki getRandomWiki() {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            InputStream is = getResources().getAssets().open("codes/wiki.json");
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            String jsonLine;
+            while ((jsonLine = bufferedReader.readLine()) != null) {
+                stringBuilder.append(jsonLine);
+            }
+            bufferedReader.close();
+            isr.close();
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String wikiJson = stringBuilder.toString();
+        Gson gson = new Gson();
+        Type wikiType = new TypeToken<ArrayList<Wiki>>(){}.getType();
+        List<Wiki> wikiList = gson.fromJson(wikiJson, wikiType);
+        return wikiList.get(new Random().nextInt(wikiList.size()));
+    }
+
+    private String getSourceCode(Wiki wiki) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            InputStream is = getResources().getAssets().open("codes/HackingDate." + wiki.getCode());
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            String fileLine;
+            while ((fileLine = bufferedReader.readLine()) != null) {
+                stringBuilder.append(fileLine).append("\n");
+            }
+            bufferedReader.close();
+            isr.close();
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
     }
 }
