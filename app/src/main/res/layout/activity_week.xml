@@ -79,16 +79,16 @@
             android:fontFamily="@font/spacemono" />
 
         <TableLayout
+            android:id="@+id/layout_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal"
-            android:background="@drawable/view_boarder">
+            android:orientation="horizontal">
 
             <TableRow
+                android:id="@+id/layout_week_row"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:divider="@color/black"
                 android:showDividers="middle">
 
                 <androidx.appcompat.widget.LinearLayoutCompat

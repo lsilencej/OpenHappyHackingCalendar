@@ -1,6 +1,7 @@
 package com.lsilencej.openhappyhackingcalendar.activity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -68,6 +69,7 @@ public class WeekActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        int nightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         calendars = (List<Calendar>) getIntent().getSerializableExtra("calendars");
         for (int i = 0; i < calendars.size(); i++) {
             Calendar calendar = calendars.get(i);
@@ -173,8 +175,10 @@ public class WeekActivity extends AppCompatActivity {
         activityWeekBinding.tvLanguage.setText(wiki.getLang());
         activityWeekBinding.tvDescribe.setText(wiki.getDescWiki());
         CodeView codeView = (CodeView) findViewById(R.id.code_view);
-        codeView.setTheme(CodeViewTheme.QTCREATOR_LIGHT);
+        codeView.setTheme(nightMode == Configuration.UI_MODE_NIGHT_YES ? CodeViewTheme.TOMORROW_NIGHT : CodeViewTheme.QTCREATOR_LIGHT).fillColor();
         codeView.showCode(getSourceCode(wiki));
+        activityWeekBinding.layoutWeek.setBackgroundResource(nightMode == Configuration.UI_MODE_NIGHT_YES ? R.drawable.view_boarder_night : R.drawable.view_boarder_light);
+        activityWeekBinding.layoutWeekRow.setDividerDrawable(nightMode == Configuration.UI_MODE_NIGHT_YES ? getResources().getDrawable(R.drawable.view_divider_night, null) : getResources().getDrawable(R.drawable.view_divider_light, null));
     }
 
     private Wiki getRandomWiki() {

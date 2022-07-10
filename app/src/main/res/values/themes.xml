@@ -16,4 +16,10 @@
         <item name="android:listPreferredItemHeightSmall">60dp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+    <style name="vertical_line_style">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/red</item>
+    </style>
 </resources>

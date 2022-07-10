@@ -1,6 +1,7 @@
 package com.lsilencej.openhappyhackingcalendar.view;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -25,49 +26,51 @@ public class CustomMonthView extends MonthView {
     public CustomMonthView(Context context) {
         super(context);
 
+        int nightMode = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
         Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/SpaceMono.ttf");
         mRectPaint.setTypeface(typeface);
         mRectPaint.setStyle(Paint.Style.STROKE);
         mRectPaint.setStrokeWidth(dipToPx(context, 0.5f));
-        mRectPaint.setColor(0xffffffff);
+        mRectPaint.setColor(nightMode == Configuration.UI_MODE_NIGHT_YES ? 0xFFA9A9B3 : 0xFFFFFFFF);
 
         mCurrentDayTextPaint.setTypeface(typeface);
         mCurrentDayTextPaint.setAntiAlias(true);
         mCurrentDayTextPaint.setTextAlign(Paint.Align.CENTER);
-        mCurrentDayTextPaint.setColor(0xffcccccc);
+        mCurrentDayTextPaint.setColor(0xFFCCCCCC);
         mCurrentDayTextPaint.setFakeBoldText(true);
         mCurrentDayTextPaint.setTextSize(dipToPx(context, TEXT_SIZE));
 
         mCurrentDayLunarTextPaint.setTypeface(typeface);
         mCurrentDayLunarTextPaint.setAntiAlias(true);
         mCurrentDayLunarTextPaint.setTextAlign(Paint.Align.CENTER);
-        mCurrentDayLunarTextPaint.setColor(0xffcccccc);
+        mCurrentDayLunarTextPaint.setColor(0xFFCCCCCC);
         mCurrentDayLunarTextPaint.setTextSize(dipToPx(context, LUNAR_TEXT_SIZE));
 
         mSimpleDayTextPaint.setTypeface(typeface);
         mSimpleDayTextPaint.setAntiAlias(true);
         mSimpleDayTextPaint.setTextAlign(Paint.Align.CENTER);
-        mSimpleDayTextPaint.setColor(0xff000000);
+        mSimpleDayTextPaint.setColor(nightMode == Configuration.UI_MODE_NIGHT_YES ? 0xFFA9A9B3 : 0xFF000000);
         mSimpleDayTextPaint.setFakeBoldText(true);
         mSimpleDayTextPaint.setTextSize(dipToPx(context, TEXT_SIZE));
 
         mSimpleDayLunarTextPaint.setTypeface(typeface);
         mSimpleDayLunarTextPaint.setAntiAlias(true);
         mSimpleDayLunarTextPaint.setTextAlign(Paint.Align.CENTER);
-        mSimpleDayLunarTextPaint.setColor(0xff000000);
+        mSimpleDayLunarTextPaint.setColor(nightMode == Configuration.UI_MODE_NIGHT_YES ? 0xFFA9A9B3 : 0xFF000000);
         mSimpleDayLunarTextPaint.setTextSize(dipToPx(context, LUNAR_TEXT_SIZE));
 
         mWeekendTextPaint.setTypeface(typeface);
         mWeekendTextPaint.setAntiAlias(true);
         mWeekendTextPaint.setTextAlign(Paint.Align.CENTER);
-        mWeekendTextPaint.setColor(0xffff4444);
+        mWeekendTextPaint.setColor(0xFFFF4444);
         mWeekendTextPaint.setFakeBoldText(true);
         mWeekendTextPaint.setTextSize(dipToPx(context, TEXT_SIZE));
 
         mWeekendLunarTextPaint.setTypeface(typeface);
         mWeekendLunarTextPaint.setAntiAlias(true);
         mWeekendLunarTextPaint.setTextAlign(Paint.Align.CENTER);
-        mWeekendLunarTextPaint.setColor(0xffff4444);
+        mWeekendLunarTextPaint.setColor(0xFFFF4444);
         mWeekendLunarTextPaint.setTextSize(dipToPx(context, LUNAR_TEXT_SIZE));
 
     }

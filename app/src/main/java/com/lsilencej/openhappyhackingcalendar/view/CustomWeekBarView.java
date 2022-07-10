@@ -1,7 +1,7 @@
 package com.lsilencej.openhappyhackingcalendar.view;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.widget.TextView;
@@ -14,7 +14,6 @@ public class CustomWeekBarView extends WeekBar {
     public CustomWeekBarView(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.view_week_bar, this, true);
-        setBackgroundColor(Color.WHITE);
         int padding = dipToPx(context, 10);
         setPadding(padding, 0, padding, 0);
         Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/SpaceMono.ttf");
@@ -31,10 +30,16 @@ public class CustomWeekBarView extends WeekBar {
 
     @Override
     protected void onWeekStartChange(int weekStart) {
+        int nightMode = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (nightMode == Configuration.UI_MODE_NIGHT_YES) {
+            for (int i = 0; i < getChildCount(); i++) {
+                ((TextView) getChildAt(i)).setTextColor(0xFFA9A9B3);
+            }
+        }
         for (int i = 0; i < getChildCount(); i++) {
             ((TextView) getChildAt(i)).setText(getWeekString(i, weekStart));
             if (i == 5 || i == 6) {
-                ((TextView) getChildAt(i)).setTextColor(0xffff4444);
+                ((TextView) getChildAt(i)).setTextColor(0xFFFF4444);
             }
         }
     }
