@@ -15,6 +15,7 @@
 ## 安装（Install）
 
 [Releases](https://github.com/lsilencej/OpenHappyHackingCalendar/releases/latest)
+
 [酷安](https://www.coolapk.com/apk/296876)
 
 ## 感谢（Grateful）
